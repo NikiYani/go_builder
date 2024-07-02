@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // Builder
 
 type ComputerBuilderI interface {
@@ -59,14 +57,6 @@ func (b Computer) Build() Computer {
 		mb:  b.mb,
 		hdd: b.hdd,
 	}
-}
-
-func main() {
-	compBuilder := NewComputerBuilder()
-	fmt.Println(compBuilder.CPU("Ryzen 3600").GPU("RTX 3070 Super").RAM(32).MB("Asus").HDD(4).Build())
-
-	officeCompBuilder := NewOfficeComputerBuilder().HDD(2)
-	fmt.Println(officeCompBuilder.Build())
 }
 
 func NewOfficeComputerBuilder() ComputerBuilderI {
